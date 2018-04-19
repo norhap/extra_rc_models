@@ -333,9 +333,9 @@ def getAllInfo():
 		elif procmodel == "vipercombohdd":
 			brand = "Amiko"
 			model = "ViperComboHDD"
-		elif procmodel == "wetekplay":
+		elif procmodel.startswith("wetek"):
 			brand = "WeTeK"
-			model = "Play"
+			model = procmodel
 		elif procmodel.startswith("os"):
 			brand = "Edision"
 			if procmodel == "osmini":
