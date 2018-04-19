@@ -552,9 +552,9 @@ def getAllInfo():
 		remote = "dmm2"
 	elif procmodel == "wetekhub":
 		remote = procmodel
-  elif procmodel == "wetekplay2":
+	elif procmodel == "wetekplay2":
 		remote = procmodel
-  elif procmodel == "wetekplay":
+	elif procmodel == "wetekplay":
 		remote = procmodel
 	elif procmodel.startswith("osm"):
 		remote = "osmini"
