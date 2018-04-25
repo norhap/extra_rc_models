@@ -139,6 +139,10 @@ def getAllInfo():
 		if (procmodel.startswith("optimuss") or procmodel.startswith("pingulux")):
 			brand = "Edision"
 			model = procmodel.replace("optimmuss", "Optimuss ").replace("plus", " Plus").replace(" os", " OS")
+		if (procmodel.startswith("tm")):
+			brand = "Technomate"
+			if procmodel == "tmnanosem2":
+				model = procmodel.replace("tmnanosem2", "TM-NANO-SE M2")
 		elif (procmodel.startswith("fusion") or procmodel.startswith("purehd") or procmodel.startswith("revo4k") or procmodel.startswith("galaxy4k")):
 			brand = "Xsarius"
 			if procmodel == "fusionhd":
@@ -592,6 +596,8 @@ def getAllInfo():
 		remote = "vs1x00"
 	elif procmodel in ("e4hd"):
 		remote = "e4hd"
+	elif procmodel in ("tmnanosem2", "tmnanosem2plus"):
+		remote = "tmnanosem2"
 
 	info['remote'] = remote
 
