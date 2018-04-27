@@ -268,7 +268,7 @@ def getAllInfo():
 				model = "Xpeed LX"
 			elif procmodel.endswith("9000de"):
 				brand = "Golden Interstar"
-				model = "Xpeed LX3"
+				model = "xpeedlx3"
 			elif procmodel.endswith("1000lx"):
 				brand = "Golden Interstar"
 				model = "Xpeed LX"
