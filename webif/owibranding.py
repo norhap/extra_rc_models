@@ -22,14 +22,6 @@ try:
 except ImportError:
 	pass
 
-tpmloaded = 1
-try:
-	from enigma import eTPM
-	if not hasattr(eTPM, 'getData'):
-		tpmloaded = 0
-except:  # noqa: E722
-	tpmloaded = 0
-
 
 def validate_certificate(cert, key):
 	buf = decrypt_block(cert[8:], key)
@@ -78,58 +70,13 @@ def decrypt_block(src, mod):
 	return None
 
 
-def tpm_check():
-	try:
-		tpm = eTPM()
-		rootkey = ['\x9f', '|', '\xe4', 'G', '\xc9', '\xb4', '\xf4', '#', '&', '\xce', '\xb3', '\xfe', '\xda', '\xc9', 'U', '`', '\xd8', '\x8c', 's', 'o', '\x90', '\x9b', '\\', 'b', '\xc0', '\x89', '\xd1', '\x8c', '\x9e', 'J', 'T', '\xc5', 'X', '\xa1', '\xb8', '\x13', '5', 'E', '\x02', '\xc9', '\xb2', '\xe6', 't', '\x89', '\xde', '\xcd', '\x9d', '\x11', '\xdd', '\xc7', '\xf4', '\xe4', '\xe4', '\xbc', '\xdb', '\x9c', '\xea', '}', '\xad', '\xda', 't', 'r', '\x9b', '\xdc', '\xbc', '\x18', '3', '\xe7', '\xaf', '|', '\xae', '\x0c', '\xe3', '\xb5', '\x84', '\x8d', '\r', '\x8d', '\x9d', '2', '\xd0', '\xce', '\xd5', 'q', '\t', '\x84', 'c', '\xa8', ')', '\x99', '\xdc', '<', '"', 'x', '\xe8', '\x87', '\x8f', '\x02', ';', 'S', 'm', '\xd5', '\xf0', '\xa3', '_', '\xb7', 'T', '\t', '\xde', '\xa7', '\xf1', '\xc9', '\xae', '\x8a', '\xd7', '\xd2', '\xcf', '\xb2', '.', '\x13', '\xfb', '\xac', 'j', '\xdf', '\xb1', '\x1d', ':', '?']
-		random = None
-		result = None
-		# l2r = False
-		l2k = None
-		l3k = None
-
-		l2c = tpm.getData(eTPM.DT_LEVEL2_CERT)
-		if l2c is None:
-			return 0
-
-		l2k = validate_certificate(l2c, rootkey)
-		if l2k is None:
-			return 0
-
-		l3c = tpm.getData(eTPM.DT_LEVEL3_CERT)
-		if l3c is None:
-			return 0
-
-		l3k = validate_certificate(l3c, l2k)
-		if l3k is None:
-			return 0
-
-		random = get_random()
-		if random is None:
-			return 0
-
-		value = tpm.computeSignature(random)
-		result = decrypt_block(value, l3k)
-		if result is None:
-			return 0
-
-		if result[80:88] != random:
-			return 0
-
-		return 1
-	except:  # noqa: E722
-		return 0
-
-
 def getAllInfo():
 	info = {}
 
 	brand = "unknown"
 	model = "unknown"
 	procmodel = "unknown"
-	orgdream = 0
-	if tpmloaded:
-		orgdream = tpm_check()
+	lcd = 0
 
 	if fileExists("/proc/stb/info/hwmodel"):
 		brand = "DAGS"
@@ -178,6 +125,8 @@ def getAllInfo():
 			model = procmodel.replace("GBQUAD", "Quad").replace("PLUS", " Plus")
 		elif procmodel == "gbquad4k":
 			model = procmodel.replace("gbquad4k", "UHD Quad 4k")
+		elif procmodel == "gbue4k":
+			model = procmodel.replace("gbue4k", "UHD UE 4k")
 	elif fileExists("/proc/stb/info/vumodel") and not fileExists("/proc/stb/info/boxtype"):
 		brand = "Vu+"
 		f = open("/proc/stb/info/vumodel", 'r')
@@ -390,6 +339,7 @@ def getAllInfo():
 		elif procmodel == "e4hd":
 			brand = "Axas"
 			model = "E4HD"
+			lcd = 1
 	elif fileExists("/proc/stb/info/model"):
 		f = open("/proc/stb/info/model", 'r')
 		procmodel = f.readline().strip().lower()
@@ -430,8 +380,7 @@ def getAllInfo():
 				model = "DM920 HD"
 			else:
 				model = procmodel.replace("dm", "DM", 1)
-		# A "dm8000" is only a Dreambox if it passes the tpm verification:
-		elif procmodel == "dm8000" and orgdream:
+		elif procmodel == "dm8000":
 			brand = "Dream Multimedia"
 			model = "DM8000"
 		else:
@@ -510,7 +459,7 @@ def getAllInfo():
 		remote = "gigablue"
 	elif procmodel == "gbquadplus":
 		remote = "gbquadplus"
-	elif procmodel == "gbquad4k":
+	elif procmodel in ("gbquad4k", "gbue4k"):
 		remote = "gb7252"
 	elif procmodel in ("formuler1", "formuler3", "formuler4", "formuler4turbo"):
 		remote = "formuler1"
@@ -552,7 +501,7 @@ def getAllInfo():
 		remote = procmodel.replace(" ", "")
 	elif procmodel == "vg2000":
 		remote = "xcombo"
-	elif procmodel == "dm8000" and orgdream:
+	elif procmodel == "dm8000":
 		remote = "dmm1"
 	elif procmodel in ("dm7080", "dm7020hd", "dm7020hdv2", "dm800sev2", "dm500hdv2", "dm520", "dm820", "dm900"):
 		remote = "dmm2"
@@ -605,7 +554,7 @@ def getAllInfo():
 
 	kernel = about.getKernelVersionString()[0]
 
-	distro = "unknown"
+	distro = "openpli"
 	imagever = "unknown"
 	imagebuild = ""
 	driverdate = "unknown"
@@ -707,7 +656,7 @@ def getAllInfo():
 	info['imagever'] = imagever
 	info['imagebuild'] = imagebuild
 	info['driverdate'] = driverdate
-
+	info['lcd'] = distro in ("openpli",) and lcd or 0
 	return info
 
 
@@ -753,6 +702,8 @@ def getImageBuild():
 def getImageDistro():
 	return STATIC_INFO_DIC['distro']
 
+def getLcd():
+	return STATIC_INFO_DIC['lcd']
 
 class rc_model:
 	def getRcFolder(self):
