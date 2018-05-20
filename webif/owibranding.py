@@ -127,9 +127,8 @@ def getAllInfo():
 	brand = "unknown"
 	model = "unknown"
 	procmodel = "unknown"
-	orgdream = 0
-	if tpmloaded:
-		orgdream = tpm_check()
+	lcd = 0
+	orgdream = 1
 
 	if fileExists("/proc/stb/info/hwmodel"):
 		brand = "DAGS"
@@ -390,6 +389,7 @@ def getAllInfo():
 		elif procmodel == "e4hd":
 			brand = "Axas"
 			model = "E4HD"
+			lcd = 1
 	elif fileExists("/proc/stb/info/model"):
 		f = open("/proc/stb/info/model", 'r')
 		procmodel = f.readline().strip().lower()
@@ -706,6 +706,8 @@ def getAllInfo():
 	info['imagebuild'] = imagebuild
 	info['driverdate'] = driverdate
 
+	info['lcd'] = distro in ("openpli",) and lcd or 0
+
 	return info
 
 
@@ -751,6 +753,8 @@ def getImageBuild():
 def getImageDistro():
 	return STATIC_INFO_DIC['distro']
 
+def getLcd():
+	return STATIC_INFO_DIC['lcd']
 
 class rc_model:
 	def getRcFolder(self):
