@@ -552,7 +552,7 @@ def getAllInfo():
 
 	kernel = about.getKernelVersionString()[0]
 
-	distro = "unknown"
+	distro = "openpli"
 	imagever = "unknown"
 	imagebuild = ""
 	driverdate = "unknown"
@@ -654,9 +654,7 @@ def getAllInfo():
 	info['imagever'] = imagever
 	info['imagebuild'] = imagebuild
 	info['driverdate'] = driverdate
-
 	info['lcd'] = distro in ("openpli",) and lcd or 0
-
 	return info
 
 
