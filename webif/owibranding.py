@@ -227,6 +227,9 @@ def getAllInfo():
 			elif procmodel.endswith("1000am"):
 				brand = "Atemio"
 				model = "5x00"
+			elif procmodel.endswith("8000am"):
+				brand = "Atemio"
+				model = "Nemesis"				
 			else:
 				brand = "Venton"
 				model = "HDx"
@@ -430,7 +433,9 @@ def getAllInfo():
 	elif type in ("tf7700hdpvr", "topf"):
 		type = "topf"
 	elif type in ("ini-9000de"):
-		type = "xpeedlx3"		
+		type = "xpeedlx3"
+	elif type in ("ini-8000am"):
+		type = "atemionemesis"		
 
 	info['brand'] = brand
 	info['model'] = model
@@ -482,6 +487,8 @@ def getAllInfo():
 		remote = "ini-1000"
 	elif procmodel in ("ini-1000sv", "ini-5000sv", "ini-9000de"):
 		remote = "xpeedlx3"
+	elif procmodel == "ini-8000am":
+		remote = "atemionemesis"		
 	elif procmodel in ("mbtwinplus", "mbmicro", "mbmicrov2"):
 		remote = "miraclebox2"
 	elif procmodel == "alphatriplehd":
