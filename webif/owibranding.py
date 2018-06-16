@@ -435,7 +435,9 @@ def getAllInfo():
 	elif type in ("ini-9000de"):
 		type = "xpeedlx3"
 	elif type in ("ini-8000am"):
-		type = "atemionemesis"		
+		type = "atemionemesis"
+	elif type in ("ini-9000ru"):
+		type = "sezammarvel"		
 
 	info['brand'] = brand
 	info['model'] = model
@@ -487,6 +489,8 @@ def getAllInfo():
 		remote = "ini-1000"
 	elif procmodel in ("ini-1000sv", "ini-5000sv", "ini-9000de"):
 		remote = "xpeedlx3"
+	elif procmodel == "ini-9000ru":
+		remote = "sezammarvel"		
 	elif procmodel == "ini-8000am":
 		remote = "atemionemesis"		
 	elif procmodel in ("mbtwinplus", "mbmicro", "mbmicrov2"):
