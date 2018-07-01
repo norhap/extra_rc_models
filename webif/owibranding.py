@@ -546,7 +546,7 @@ def getAllInfo():
 		remote = "amiko"
 	elif procmodel in ("vipercombohdd"):
 		remote = "amiko1"
-	elif procmodel in ("alien5", "k1pro"):
+	elif procmodel in ("alien5", "k1pro", "k2pro", "k3pro", "k1plus"):
 		remote = "alien5"
 	elif procmodel == "sf4008":
 		remote = "octagon"
