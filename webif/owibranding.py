@@ -212,7 +212,7 @@ def getAllInfo():
 				model = "mbtwin"
 			elif procmodel.endswith("1000sv"):
 				brand = "Miraclebox"
-				model = "mbmini"
+				model = "Premium Mini"
 			elif procmodel.endswith("1000de"):
 				brand = "Golden Interstar"
 				model = "Xpeed LX"
@@ -447,7 +447,9 @@ def getAllInfo():
 	elif type in ("ini-9000ru"):
 		type = "sezammarvel"
 	elif type in ("ini-3000"):
-		type = "ventonhdx"		
+		type = "ventonhdx"
+	elif type in ("ini-1000sv"):
+		type = "mbmini"			
 
 	info['brand'] = brand
 	info['model'] = model
@@ -497,7 +499,9 @@ def getAllInfo():
 		remote = "elite"
 	elif procmodel in ("ini-1000", "ini-1000ru"):
 		remote = "ini-1000"
-	elif procmodel in ("ini-1000sv", "ini-5000sv", "ini-9000de"):
+	elif procmodel == "ini-1000sv":
+		remote = "mbmini"	
+	elif procmodel in (	"ini-5000sv", "ini-9000de"):
 		remote = "xpeedlx3"
 	elif procmodel == "ini-9000ru":
 		remote = "sezammarvel"		
