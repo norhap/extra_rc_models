@@ -306,6 +306,8 @@ def getAllInfo():
 				model = "OS Nino"
 			elif procmodel == "osninoplus":
 				model = "OS Nino+"
+			elif procmodel == "osninopro":
+				model = "OS Nino Pro"
 			else:
 				model = procmodel
 		elif procmodel == "h3":
@@ -521,6 +523,8 @@ def getAllInfo():
 		remote = procmodel
 	elif procmodel.startswith("osm"):
 		remote = "osmini"
+	elif procmodel.startswith("osninopr"):
+		remote = "edision3"
 	elif procmodel.startswith("osninopl"):
 		remote = "edision2"
 	elif procmodel.startswith("osn"):
