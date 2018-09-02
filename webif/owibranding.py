@@ -212,7 +212,7 @@ def getAllInfo():
 				model = "mbtwin"
 			elif procmodel.endswith("1000sv"):
 				brand = "Miraclebox"
-				model = "mbmini"
+				model = "Premium Mini"
 			elif procmodel.endswith("1000de"):
 				brand = "Golden Interstar"
 				model = "Xpeed LX"
@@ -227,6 +227,15 @@ def getAllInfo():
 			elif procmodel.endswith("1000am"):
 				brand = "Atemio"
 				model = "5x00"
+			elif procmodel.endswith("8000am"):
+				brand = "Atemio"
+				model = "Nemesis"
+			elif procmodel.endswith("8000am"):
+				brand = "Miraclebox"
+				model = "Premium Ultra"
+			elif procmodel.endswith("3000"):
+				brand = "Venton Unibox"
+				model = "HD1"					
 			else:
 				brand = "Venton"
 				model = "HDx"
@@ -279,9 +288,6 @@ def getAllInfo():
 		elif procmodel == "spycat4kmini":
 			brand = "Spycat"
 			model = "spycat 4K Mini"
-		elif procmodel in ("k1pro", "k2pro", "k2prov2", "k3pro", "k1plus"):
-			brand = "Mecool"
-			model = procmodel.upper()
 		elif procmodel == "vipercombo":
 			brand = "Amiko"
 			model = "ViperCombo"
@@ -434,6 +440,18 @@ def getAllInfo():
 		type = "esi88"
 	elif type in ("tf7700hdpvr", "topf"):
 		type = "topf"
+	elif type in ("ini-9000de"):
+		type = "xpeedlx3"
+	elif type in ("ini-8000am"):
+		type = "atemionemesis"
+	elif type in ("ini-8000am"):
+		type = "mbultra"		
+	elif type in ("ini-9000ru"):
+		type = "sezammarvel"
+	elif type in ("ini-3000"):
+		type = "ventonhdx"
+	elif type in ("ini-1000sv"):
+		type = "mbmini"			
 
 	info['brand'] = brand
 	info['model'] = model
@@ -483,8 +501,18 @@ def getAllInfo():
 		remote = "elite"
 	elif procmodel in ("ini-1000", "ini-1000ru"):
 		remote = "ini-1000"
-	elif procmodel in ("ini-1000sv", "ini-5000sv", "ini-9000de"):
-		remote = "miraclebox"
+	elif procmodel == "ini-1000sv":
+		remote = "mbmini"	
+	elif procmodel in (	"ini-5000sv", "ini-9000de"):
+		remote = "xpeedlx3"
+	elif procmodel == "ini-9000ru":
+		remote = "sezammarvel"		
+	elif procmodel == "ini-8000am":
+		remote = "atemionemesis"
+	elif procmodel == "ini-8000am":
+		remote = "mbultra"
+	elif procmodel == "ini-3000":
+		remote = "ventonhdx"		
 	elif procmodel in ("mbtwinplus", "mbmicro", "mbmicrov2"):
 		remote = "miraclebox2"
 	elif procmodel == "alphatriplehd":
