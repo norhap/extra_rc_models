@@ -288,9 +288,6 @@ def getAllInfo():
 		elif procmodel == "spycat4kmini":
 			brand = "Spycat"
 			model = "spycat 4K Mini"
-		elif procmodel in ("k1pro", "k2pro", "k2prov2", "k3pro", "k1plus"):
-			brand = "Mecool"
-            model = procmodel.upper()			
 		elif procmodel == "vipercombo":
 			brand = "Amiko"
 			model = "ViperCombo"
