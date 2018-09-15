@@ -1,5 +1,5 @@
 <rcs>
-	<rc id="1">
+	<rc id="2">
 		<button name="POWER" pos="48,19" />
 		<button name="1" pos="46,111" />
 		<button name="2" pos="74,111" />
