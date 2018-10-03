@@ -242,6 +242,9 @@ def getAllInfo():
 		elif procmodel.startswith("unibox-"):
 			brand = "Venton"
 			model = "HDe"
+		elif procmodel.startswith("u5pvr"):
+			brand = "Dinobot"
+			model = "Dinobot4k SE"			
 		elif procmodel == "hd1100":
 			brand = "Mut@nt"
 			model = "HD1100"
@@ -451,7 +454,9 @@ def getAllInfo():
 	elif type in ("ini-3000"):
 		type = "ventonhdx"
 	elif type in ("ini-1000sv"):
-		type = "mbmini"			
+		type = "mbmini"
+	elif type in ("u5pvr"):
+		type = "dinobot4kse"		
 
 	info['brand'] = brand
 	info['model'] = model
@@ -595,6 +600,8 @@ def getAllInfo():
 		remote = "e4hd"
 	elif procmodel in ("tmnanosem2", "tmnanosem2plus"):
 		remote = "tmnanosem2"
+	elif procmodel in ("u5pvr"):
+		remote = "dinobot4kse"		
 
 	info['remote'] = remote
 
