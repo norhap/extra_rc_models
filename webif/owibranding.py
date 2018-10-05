@@ -244,7 +244,7 @@ def getAllInfo():
 			model = "HDe"
 		elif procmodel.startswith("u5pvr"):
 			brand = "Dinobot"
-			model = "Dinobot4kSE/Ferguson4k"			
+			model = "Dinobot4kSE|Ferguson4k"			
 		elif procmodel == "hd1100":
 			brand = "Mut@nt"
 			model = "HD1100"
