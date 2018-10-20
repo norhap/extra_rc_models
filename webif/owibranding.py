@@ -354,7 +354,7 @@ def getAllInfo():
 			brand = "Vimastec"
 			model = "vs1500"
 			grabpip = 1
-		elif procmodel == "sf4008":
+		elif procmodel.startswith("sf"):
 			brand = "Octagon"
 			model = procmodel
 		elif procmodel == "e4hd":
@@ -595,7 +595,7 @@ def getAllInfo():
 		remote = "k1pro"
 	elif procmodel == "k3pro":
 		remote = "k3pro"
-	elif procmodel == "sf4008":
+	elif procmodel.startswith("sf"):
 		remote = "octagon"
 	elif procmodel in ("vs1100", "vs1500"):
 		remote = "vs1x00"
