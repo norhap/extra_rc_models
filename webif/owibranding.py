@@ -235,7 +235,7 @@ def getAllInfo():
 				model = "Premium Ultra"
 			elif procmodel.endswith("3000"):
 				brand = "Venton Unibox"
-				model = "HD1"					
+				model = "HD1"
 			else:
 				brand = "Venton"
 				model = "HDx"
@@ -244,7 +244,7 @@ def getAllInfo():
 			model = "HDe"
 		elif procmodel.startswith("u5pvr"):
 			brand = "Dinobot"
-			model = "Dinobot4kSE|Ferguson4k"			
+			model = "Dinobot4kSE|Ferguson4k"
 		elif procmodel == "hd1100":
 			brand = "Mut@nt"
 			model = "HD1100"
@@ -320,6 +320,12 @@ def getAllInfo():
 				model = "OS Nino+"
 			elif procmodel == "osninopro":
 				model = "OS Nino Pro"
+			elif procmodel == "osmio4k":
+				model = "OS Mio 4K"
+				grabpip = 1
+			elif procmodel == "osmio4kplus":
+				model = "OS Mio+ 4K"
+				grabpip = 1
 			else:
 				model = procmodel
 		elif procmodel == "h3":
@@ -451,7 +457,7 @@ def getAllInfo():
 	elif type in ("ini-8000am"):
 		type = "atemionemesis"
 	elif type in ("ini-8000am"):
-		type = "mbultra"		
+		type = "mbultra"
 	elif type in ("ini-9000ru"):
 		type = "sezammarvel"
 	elif type in ("ini-3000"):
@@ -459,7 +465,7 @@ def getAllInfo():
 	elif type in ("ini-1000sv"):
 		type = "mbmini"
 	elif type in ("u5pvr"):
-		type = "u5pvr"	
+		type = "u5pvr"
 
 
 	info['brand'] = brand
@@ -511,17 +517,17 @@ def getAllInfo():
 	elif procmodel in ("ini-1000", "ini-1000ru"):
 		remote = "ini-1000"
 	elif procmodel == "ini-1000sv":
-		remote = "mbmini"	
+		remote = "mbmini"
 	elif procmodel in (	"ini-5000sv", "ini-9000de"):
 		remote = "xpeedlx3"
 	elif procmodel == "ini-9000ru":
-		remote = "sezammarvel"		
+		remote = "sezammarvel"
 	elif procmodel == "ini-8000am":
 		remote = "atemionemesis"
 	elif procmodel == "ini-8000am":
 		remote = "mbultra"
 	elif procmodel == "ini-3000":
-		remote = "ventonhdx"		
+		remote = "ventonhdx"
 	elif procmodel in ("mbtwinplus", "mbmicro", "mbmicrov2"):
 		remote = "miraclebox2"
 	elif procmodel == "alphatriplehd":
@@ -562,7 +568,7 @@ def getAllInfo():
 		remote = procmodel
 	elif procmodel.startswith("osm"):
 		remote = "osmini"
-	elif procmodel.startswith("osninopr"):
+	elif procmodel.startswith("osmio4k","osmio4kplus"):
 		remote = "edision3"
 	elif procmodel.startswith("osninopl"):
 		remote = "edision2"
@@ -607,7 +613,7 @@ def getAllInfo():
 	elif procmodel in ("tmnanosem2", "tmnanosem2plus"):
 		remote = "tmnanosem2"
 	elif procmodel in ("u5pvr"):
-		remote = "u5pvr"		
+		remote = "u5pvr"
 
 	info['remote'] = remote
 
