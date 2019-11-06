@@ -566,9 +566,9 @@ def getAllInfo():
 		remote = procmodel
 	elif procmodel == "wetekplay":
 		remote = procmodel
-	elif procmodel.startswith("osm"):
+	elif procmodel.endswith("smini"):
 		remote = "osmini"
-	elif procmodel.startswith("osmio4k","osmio4kplus"):
+	elif procmodel.startswith("osmio4k"):
 		remote = "edision3"
 	elif procmodel.startswith("osninopl"):
 		remote = "edision2"
