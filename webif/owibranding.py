@@ -128,6 +128,12 @@ def getAllInfo():
 			model = procmodel.replace("gbquad4k", "UHD Quad 4k")
 		elif procmodel == "gbue4k":
 			model = procmodel.replace("gbue4k", "UHD UE 4k")
+		elif procmodel == "gbtrio4k":
+			model = "GB TRIO 4K"
+			grabpip = 1
+		elif procmodel == "gbip4k":
+			model = "GB IP 4K"
+			grabpip = 1
 	elif fileExists("/proc/stb/info/vumodel") and not fileExists("/proc/stb/info/boxtype"):
 		brand = "Vu+"
 		f = open("/proc/stb/info/vumodel", 'r')
@@ -504,6 +510,8 @@ def getAllInfo():
 		remote = "gbquadplus"
 	elif procmodel in ("gbquad4k", "gbue4k"):
 		remote = "gb7252"
+	elif procmodel in ("gbtrio4k", "gbip4k"):
+		remote = "gb3"
 	elif procmodel in ("formuler1", "formuler3", "formuler4", "formuler4turbo"):
 		remote = "formuler1"
 	elif procmodel in ("azboxme", "azboxminime", "me", "minime"):
