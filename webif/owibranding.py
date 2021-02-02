@@ -312,6 +312,11 @@ def getAllInfo():
 		elif procmodel.startswith("wetek"):
 			brand = "WeTeK"
 			model = procmodel
+		elif procmodel.startswith("sf"):
+			brand = "OCTAGON"
+			if procmodel == "sf8008":
+				model = "SF8008 UHD"
+				grabpip = 1
 		elif procmodel.startswith("os"):
 			brand = "Edision"
 			if procmodel == "osmini":
@@ -366,9 +371,6 @@ def getAllInfo():
 			brand = "Vimastec"
 			model = "vs1500"
 			grabpip = 1
-		elif procmodel.startswith("sf"):
-			brand = "Octagon"
-			model = procmodel
 		elif procmodel == "e4hd":
 			brand = "Axas"
 			model = "E4HD"
@@ -613,7 +615,7 @@ def getAllInfo():
 	elif procmodel == "k3pro":
 		remote = "k3pro"
 	elif procmodel.startswith("sf"):
-		remote = "octagon"
+		remote = "sf8008"
 	elif procmodel in ("vs1100", "vs1500"):
 		remote = "vs1x00"
 	elif procmodel in ("e4hd"):
