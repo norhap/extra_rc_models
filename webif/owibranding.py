@@ -312,11 +312,15 @@ def getAllInfo():
 		elif procmodel.startswith("wetek"):
 			brand = "WeTeK"
 			model = procmodel
-		elif procmodel.startswith("sf"):
+		elif procmodel.endswith("008"):
 			brand = "OCTAGON"
 			if procmodel == "sf8008":
 				model = "SF8008 UHD"
 				grabpip = 1
+		elif procmodel.endswith("08m"):
+			brand = "OCTAGON"
+			if procmodel == "sf8008m":
+				model = "SF8008 MINI UHD"
 		elif procmodel.startswith("os"):
 			brand = "Edision"
 			if procmodel == "osmini":
