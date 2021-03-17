@@ -517,7 +517,7 @@ def getAllInfo():
 	elif procmodel in ("gbquad4k", "gbue4k"):
 		remote = "gb7252"
 	elif procmodel in ("gbtrio4k", "gbip4k"):
-		remote = "gb3"
+		remote = "gb4"
 	elif procmodel in ("formuler1", "formuler3", "formuler4", "formuler4turbo"):
 		remote = "formuler1"
 	elif procmodel in ("azboxme", "azboxminime", "me", "minime"):
