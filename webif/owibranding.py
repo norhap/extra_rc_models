@@ -129,10 +129,10 @@ def getAllInfo():
 		elif procmodel == "gbue4k":
 			model = procmodel.replace("gbue4k", "UHD UE 4k")
 		elif procmodel == "gbtrio4k":
-			model = "GB TRIO 4K"
+			model = "UHD TRIO 4K"
 			grabpip = 1
 		elif procmodel == "gbip4k":
-			model = "GB IP 4K"
+			model = "UHD IP 4K"
 			grabpip = 1
 	elif fileExists("/proc/stb/info/vumodel") and not fileExists("/proc/stb/info/boxtype"):
 		brand = "Vu+"
