@@ -619,7 +619,7 @@ def getAllInfo():
 	elif procmodel == "k3pro":
 		remote = "k3pro"
 	elif procmodel.startswith("sf8008"):
-		remote = "sf80082"
+		remote = "octagon1"
 	elif procmodel in ("vs1100", "vs1500"):
 		remote = "vs1x00"
 	elif procmodel in ("e4hd"):
