@@ -315,12 +315,12 @@ def getAllInfo():
 		elif procmodel.endswith("008"):
 			brand = "OCTAGON"
 			if procmodel == "sf8008":
-				model = "SF8008 UHD"
+				model = "SF8008 4k UHD"
 				grabpip = 1
 		elif procmodel.endswith("08m"):
 			brand = "OCTAGON"
 			if procmodel == "sf8008m":
-				model = "SF8008 MINI UHD"
+				model = "SF8008 MINI 4k UHD"
 		elif procmodel.startswith("os"):
 			brand = "Edision"
 			if procmodel == "osmini":
@@ -339,7 +339,7 @@ def getAllInfo():
 				model = "OS Mio 4K"
 				grabpip = 1
 			elif procmodel == "osmio4kplus":
-				model = "OS Mio+ 4K"
+				model = "OS mio+ 4K"
 				grabpip = 1
 			else:
 				model = procmodel
