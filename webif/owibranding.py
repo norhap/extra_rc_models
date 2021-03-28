@@ -314,7 +314,7 @@ def getAllInfo():
 		elif procmodel.endswith("008"):
 			brand = "OCTAGON"
 			if procmodel == "sf8008":
-				model = "SF8008 4k UHD"
+				model = "SF8008 4k UHD TWIN"
 				grabpip = 1
 		elif procmodel.endswith("08m"):
 			brand = "OCTAGON"
