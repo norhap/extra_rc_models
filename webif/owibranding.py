@@ -14,6 +14,7 @@
 # from Components.About import about
 from Tools.Directories import fileExists
 from time import time
+from boxbranding import getBoxType
 import os
 import hashlib
 
@@ -119,9 +120,7 @@ def getAllInfo():
 		model = procmodel.lower()
 	elif fileExists("/proc/stb/info/gbmodel"):
 		brand = "GigaBlue"
-		f = open("/proc/stb/info/gbmodel", 'r')
-		procmodel = f.readline().strip()
-		f.close()
+		procmodel = getBoxType()
 		if procmodel == "GBQUAD PLUS":
 			model = procmodel.replace("GBQUAD", "Quad").replace("PLUS", " Plus")
 		elif procmodel == "gbquad4k":
