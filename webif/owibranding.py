@@ -12,7 +12,8 @@
 ##############################################################################
 
 # from Components.About import about
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, fileHas
+from enigma import getE2Rev
 from time import time
 from boxbranding import getBoxType
 import os
@@ -639,8 +640,8 @@ def getAllInfo():
 
 	# Assume OE 1.6
 	oever = "OE 1.6"
-	if kernel > 2:
-		oever = "OE 2.0"
+	if fileHas("/etc/issue","zeus"):
+		oever = "OE Zeus 3.0"
 
 	if fileExists("/etc/.box"):
 		distro = "HDMU"
@@ -690,12 +691,6 @@ def getAllInfo():
 			try:
 				imagelist = open("/etc/issue").readlines()[-2].split()[1].split('.')
 				imagever = imagelist.pop(0)
-				if imagelist:
-					imagebuild = "".join(imagelist)
-				else:
-					# deal with major release versions only
-					if imagever.isnumeric():
-						imagebuild = "0"
 			except:  # nosec  # noqa: E722
 				# just in case
 				pass
@@ -703,7 +698,7 @@ def getAllInfo():
 			oever = "PLi-OE"
 		else:
 			try:
-				imagever = about.getImageVersionString()
+				imagever = "" + getE2Rev()
 			except:  # nosec  # noqa: E722
 				pass
 
