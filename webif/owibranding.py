@@ -698,7 +698,7 @@ def getAllInfo():
 			oever = "PLi-OE"
 		else:
 			try:
-				imagever = "" + getE2Rev()
+				imagever = "" + getE2Rev().split("+")[1]
 			except:  # nosec  # noqa: E722
 				pass
 
