@@ -134,6 +134,18 @@ def getAllInfo():
 		elif procmodel == "gbip4k":
 			model = "UHD IP 4K"
 			grabpip = 1
+	elif fileHas("/etc/hosts", "sf"):
+		brand = "OCTAGON"
+		procmodel = getBoxType()
+		if procmodel == "sf8008t":
+			model = "SF8008 4k UHD TWIN"
+			grabpip = 1
+		elif procmodel == "sf8008":
+			model = "SF8008 4k UHD COMBO"
+			grabpip = 1
+		elif procmodel == "sf8008m":
+			model = "SF8008 MINI 4k UHD"
+			grabpip = 1
 	elif fileExists("/proc/stb/info/vumodel") and not fileExists("/proc/stb/info/boxtype"):
 		brand = "Vu+"
 		f = open("/proc/stb/info/vumodel", 'r')
@@ -312,15 +324,6 @@ def getAllInfo():
 		elif procmodel.startswith("wetek"):
 			brand = "WeTeK"
 			model = procmodel
-		elif procmodel.endswith("008"):
-			brand = "OCTAGON"
-			if procmodel == "sf8008":
-				model = "SF8008 4k UHD TWIN"
-				grabpip = 1
-		elif procmodel.endswith("08m"):
-			brand = "OCTAGON"
-			if procmodel == "sf8008m":
-				model = "SF8008 MINI 4k UHD"
 		elif procmodel.startswith("os"):
 			brand = "Edision"
 			if procmodel == "osmini":
