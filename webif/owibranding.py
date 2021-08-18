@@ -140,6 +140,9 @@ def getAllInfo():
 		if procmodel == "sf8008t":
 			model = "SF8008 4k UHD TWIN"
 			grabpip = 1
+		elif procmodel == "sf8008s":
+			model = "SF8008 4k UHD SINGLE"
+			grabpip = 1
 		elif procmodel == "sf8008":
 			model = "SF8008 4k UHD COMBO"
 			grabpip = 1
