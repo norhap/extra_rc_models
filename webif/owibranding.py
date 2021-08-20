@@ -149,6 +149,15 @@ def getAllInfo():
 		elif procmodel == "sf8008m":
 			model = "SF8008 MINI 4k UHD"
 			grabpip = 1
+		elif procmodel == "ustym4kprotwin":
+			model = "Ustym 4k PRO TWIN"
+			grabpip = 1
+		elif procmodel == "ustym4kprosingle":
+			model = "Ustym 4k PRO SINGLE"
+			grabpip = 1
+		elif procmodel == "ustym4kpro":
+			model = "Ustym 4k PRO"
+			grabpip = 1
 	elif fileExists("/proc/stb/info/vumodel") and not fileExists("/proc/stb/info/boxtype"):
 		brand = "Vu+"
 		f = open("/proc/stb/info/vumodel", 'r')
