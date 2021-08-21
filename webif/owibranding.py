@@ -156,7 +156,7 @@ def getAllInfo():
 			model = "Ustym 4k PRO SINGLE"
 			grabpip = 1
 		elif procmodel == "ustym4kpro":
-			model = "Ustym 4k PRO"
+			model = "Ustym 4k PRO COMBO"
 			grabpip = 1
 	elif fileExists("/proc/stb/info/vumodel") and not fileExists("/proc/stb/info/boxtype"):
 		brand = "Vu+"
