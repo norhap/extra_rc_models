@@ -552,7 +552,7 @@ def getAllInfo():
 	elif procmodel == "ini-9000ru":
 		remote = "sezammarvel"
 	elif procmodel == "ini-8000am":
-		remote = "atemionemesis"
+		remote = "ini4"
 	elif procmodel == "ini-8000am":
 		remote = "mbultra"
 	elif procmodel == "ini-3000":
