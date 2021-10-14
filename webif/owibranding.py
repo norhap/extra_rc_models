@@ -136,7 +136,7 @@ def getAllInfo():
 			grabpip = 1
 	elif getBoxType() == "dreamone":
 		brand = "Dreambox"
-		model = "ONE UHD 4K"
+		model = "One UltraHD"
 	elif fileHas("/etc/hosts", "sf"):
 		brand = "OCTAGON"
 		procmodel = getBoxType()
