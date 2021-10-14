@@ -135,8 +135,9 @@ def getAllInfo():
 			model = "UHD IP 4K"
 			grabpip = 1
 	elif getBoxType() == "dreamone":
-		brand = "Dreambox"
-		model = "One UltraHD"
+		brand = "dreambox"
+		model = "ONE UltraHD"
+		procmodel = getBoxType()
 	elif fileHas("/etc/hosts", "sf"):
 		brand = "OCTAGON"
 		procmodel = getBoxType()
@@ -414,35 +415,6 @@ def getAllInfo():
 				model = "Spark 7162"
 			else:
 				model = "Spark"
-		elif (procmodel.startswith("dm") and not procmodel == "dm8000"):
-			brand = "Dream Multimedia"
-			if procmodel == "dm800":
-				model = "DM800 HD PVR"
-			elif procmodel == "dm800se":
-				model = "DM800 HD se"
-			elif procmodel == "dm500hd":
-				model = "DM500 HD"
-			elif procmodel == "dm7020hd":
-				model = "DM7020 HD"
-			elif procmodel == "dm820":
-				model = "DM820 HD"
-			elif procmodel == "dm7080":
-				model = "DM7080 HD"
-			elif procmodel == "dm520":
-				model = "DM520 HD"
-			elif procmodel == "dm525":
-				model = "DM525 HD"
-			elif procmodel == "dm900":
-				model = "DM900 HD"
-				grabpip = 1
-			elif procmodel == "dm920":
-				model = "DM920 HD"
-				grabpip = 1
-			else:
-				model = procmodel.replace("dm", "DM", 1)
-		elif procmodel == "dm8000":
-			brand = "Dream Multimedia"
-			model = "DM8000"
 		else:
 			model = procmodel
 
@@ -590,7 +562,7 @@ def getAllInfo():
 		remote = "xcombo"
 	elif procmodel == "dm8000":
 		remote = "dmm1"
-	elif procmodel in ("dm7080", "dm7020hd", "dm7020hdv2", "dm800sev2", "dm500hdv2", "dm520", "dm820", "dm900"):
+	elif getBoxType() in ("dm7080", "dm7020hd", "dm7020hdv2", "dm800sev2", "dm500hdv2", "dm520", "dm820", "dm900", "dm920", "dreamone", "dreamtwo"):
 		remote = "dmm2"
 	elif procmodel == "wetekhub":
 		remote = procmodel
