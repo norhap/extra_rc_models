@@ -630,8 +630,10 @@ def getAllInfo():
 
 	# Assume OE 1.6
 	oever = "OE 1.6"
-	if fileHas("/etc/issue","zeus"):
+	if fileHas("/etc/issue", "zeus"):
 		oever = "OE Zeus 3.0"
+	elif fileHas("/etc/issue", "python3"):
+		oever = "OE 3.3 hardknott"
 
 	if fileExists("/etc/.box"):
 		distro = "HDMU"
