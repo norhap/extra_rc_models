@@ -80,6 +80,7 @@ def getAllInfo():
 	procmodel = "unknown"
 	grabpip =0
 	lcd = 0
+# FROMTAL BOXES
 
 	if fileExists("/proc/stb/info/hwmodel"):
 		brand = "DAGS"
@@ -165,7 +166,7 @@ def getAllInfo():
 	elif fileExists("/proc/stb/info/vumodel") and not fileExists("/proc/stb/info/boxtype"):
 		brand = "Vu+"
 		f = open("/proc/stb/info/vumodel", 'r')
-		procmodel = f.readline().strip()
+		procmodel = getBoxType()
 		f.close()
 		model = procmodel.title().replace("olose", "olo SE").replace("olo2se", "olo2 SE").replace("2", "²")
 	elif fileExists("/proc/boxtype"):
@@ -476,13 +477,7 @@ def getAllInfo():
 	info['type'] = type
 
 	remote = "dmm1"
-	if procmodel in ("solo", "duo", "uno", "solo2", "solose", "zero", "solo4k", "uno4k", "ultimo4k"):
-		remote = "vu_normal"
-	elif procmodel == "duo2":
-		remote = "vu_duo2"
-	elif procmodel == "ultimo":
-		remote = "vu_ultimo"
-	elif procmodel in ("uno4kse", "vuzero4k"):
+	if getBoxType() in ("vuuno4kse", "vuzero4k"):
 		remote = "vu6"
 	elif procmodel == "e3hd":
 		remote = "e3hd"
@@ -739,10 +734,6 @@ def getMachineBrand():
 
 def getMachineName():
 	return STATIC_INFO_DIC['model']
-
-
-def getMachineProcModel():
-	return STATIC_INFO_DIC['procmodel']
 
 
 def getBoxType():
