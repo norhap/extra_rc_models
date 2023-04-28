@@ -479,6 +479,8 @@ def getAllInfo():
 	remote = "dmm1"
 	if getBoxType() in ("vuuno4kse", "vuzero4k"):
 		remote = "vu6"
+	elif procmodel == "vuuno4k":
+		remote = "vu2"
 	elif procmodel == "e3hd":
 		remote = "e3hd"
 	elif procmodel in ("et9x00", "et9000", "et9100", "et9200", "et9500"):
