@@ -477,7 +477,7 @@ def getAllInfo():
 	info['type'] = type
 
 	remote = "dmm1"
-	if getBoxType() in ("vuuno4kse", "vuzero4k", "vuduo4k"):
+	if getBoxType() in ("vuuno4kse", "vuzero4k", "vuduo4k", "vuduo4kse", "vuultimo4k"):
 		remote = "vu6"
 	elif getBoxType() == "h17":
 		remote = "zgemma7"		
